@@ -2,10 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QRadioButton>
-#include <QMessageBox>
-#include <QCheckBox>
-#include <QListWidgetItem>
+#include<QEvent>
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -17,8 +14,11 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    void timerEvent(QTimerEvent *);
 
 private:
     Ui::MainWindow *ui;
+    int id1;
+    int id2;
 };
 #endif // MAINWINDOW_H

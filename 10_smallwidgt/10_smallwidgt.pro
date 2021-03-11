@@ -17,18 +17,21 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    mycreat.cpp \
+    smallwidgt.cpp
 
 HEADERS += \
-    mainwindow.h
+    mainwindow.h \
+    mycreat.h \
+    smallwidgt.h
 
 FORMS += \
-    mainwindow.ui
+    mainwindow.ui \
+    mycreat.ui \
+    smallwidgt.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
-
-RESOURCES += \
-    res.qrc
