@@ -6,6 +6,7 @@
 #include "QPixmap"
 #include "mypushbutton.h"
 #include "QDebug"
+#include "QTimer"
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -21,10 +22,24 @@ MainWindow::MainWindow(QWidget *parent)
     MyPushButton * startbtn=new MyPushButton(":/res/MenuSceneStartButton.png");
     startbtn->setParent(this);
     startbtn->move(this->width()*0.5-startbtn->width()*0.5,this->height()*0.7);
+    chooselevelscence=new ChooseLevelScence();
+    connect(chooselevelscence,&ChooseLevelScence::chooseback,this,[=](){
+        chooselevelscence->hide();
+        this->show();
+
+    });
     connect(startbtn,&QPushButton::clicked,[=](){
         qDebug()<<"jump"<<endl;
         startbtn->zoom1();
         startbtn->zoom2();
+        QTimer::singleShot(500,this,[=](){
+            this->hide();
+            chooselevelscence->show();
+
+        });
+
+        //开始进入选择关卡的场景中
+
     });
 
 

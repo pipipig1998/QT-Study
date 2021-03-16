@@ -13,7 +13,8 @@ public:
     QString pressImagePath;
     void zoom1();
     void zoom2();
-
+    void mousePressEvent(QMouseEvent *e);
+    void mouseReleaseEvent(QMouseEvent *e);
 signals:
 
 public slots:

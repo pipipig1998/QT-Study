@@ -35,3 +35,47 @@ void MyPushButton::zoom2(){
     anamation->setEasingCurve(QEasingCurve::OutBounce);
     anamation->start();
 }
+void MyPushButton::mousePressEvent(QMouseEvent *e){
+    if(this->pressImagePath!=NULL){
+        QPixmap pix;
+        pix.load(this->pressImagePath);
+        this->setFixedSize(pix.width(),pix.height());
+        this->setStyleSheet("QPushButton{border:0px;}");
+        this->setIcon(pix);
+        this->setIconSize(QSize(pix.width(),pix.height()));
+    }
+    return QPushButton::mousePressEvent(e);
+}
+void MyPushButton::mouseReleaseEvent(QMouseEvent *e){
+    if(this->pressImagePath!=NULL){
+        QPixmap pix;
+        pix.load(this->normalImagePath);
+        this->setFixedSize(pix.width(),pix.height());
+        this->setStyleSheet("QPushButton{border:0px;}");
+        this->setIcon(pix);
+        this->setIconSize(QSize(pix.width(),pix.height()));
+    }
+    return QPushButton::mouseReleaseEvent(e);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
